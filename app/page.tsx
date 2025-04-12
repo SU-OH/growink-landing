@@ -209,13 +209,13 @@ export default function Home() {
               {
                 title: "카페 A 브랜딩",
                 category: "웹사이트 & SNS 마케팅",
-                image: "/images/portfolio-cafe.jpg",
+                image: "/images/portfolio-cafe.png",
                 result: "매장 방문 2배 증가",
               },
               {
                 title: "스타트업 B",
                 category: "브랜딩 & 숏폼 영상",
-                image: "/images/portfolio-startup.jpg",
+                image: "/images/portfolio-startup.png",
                 result: "투자 유치 성공",
               },
               {

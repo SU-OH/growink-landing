@@ -16,7 +16,25 @@ export const metadata: Metadata = {
     icon: "/images/growink-logo.png",
     apple: "/images/growink-logo.png",
   },
-    generator: 'v0.dev'
+  openGraph: {
+    title: "Growink - 당신의 브랜드를 키우고, 세상과 연결하는 파트너",
+    description: "웹사이트 제작, 숏폼 영상 제작, 브랜딩 및 마케팅 서비스를 제공하는 Growink입니다. 초기 창업가와 예비 창업자의 성장을 돕는 디지털 파트너.",
+    images: [{
+      url: "/images/growink-og.png",
+      width: 1024,
+      height: 536,
+      alt: "Growink - 디지털 성장 파트너"
+    }],
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Growink - 당신의 브랜드를 키우고, 세상과 연결하는 파트너",
+    description: "웹사이트 제작, 숏폼 영상 제작, 브랜딩 및 마케팅 서비스를 제공하는 Growink입니다.",
+    images: ["/images/growink-og.png"],
+  },
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
