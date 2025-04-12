@@ -210,7 +210,7 @@ export default function Home() {
                 title: "기관 웹페이지 제작",
                 category: "웹사이트",
                 image: "/images/portfolio-cafe.png",
-                result: "관리자 대쉬보드",
+                result: "창업자 관리 시스템",
               },
               {
                 title: "스타트업 B",

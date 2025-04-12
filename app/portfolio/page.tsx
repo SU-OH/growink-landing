@@ -10,12 +10,20 @@ export default function PortfolioPage() {
     {
       title: "기관 웹페이지 제작",
       category: "웹사이트",
-      image: "/images/portfolio-cafe.png",
-      year: "2023",
-      results: ["관리자 대쉬보드", "온라인 주문 150% 상승", "SNS 팔로워 3배 증가"],
-      tech: ["반응형 웹", "SEO 최적화", "데이터 분석"],
       description:
-        "기관을 위한 웹사이트를 제작하여 온라인 존재감을 강화하고 효율적인 관리자 대쉬보드를 구축했습니다. 직관적인 UI/UX와 최적화된 성능으로 사용자 경험을 크게 향상시켰습니다.",
+        "중장년기술창업센터를 위한 웹사이트 제작. 온라인 존재감을 향상시키고 창업자들을 위한 관리 시스템을 구축했습니다.",
+      tags: ["Web Design", "Development", "UI/UX"],
+      image: "/images/portfolio-institution.png",
+      results: [
+        "창업자 관리 시스템",
+        "창업 지원 신청 30% 증가",
+        "교육 참여율 45% 향상",
+      ],
+      testimonial: {
+        quote:
+          "그로윙크 덕분에 우리 센터가 온라인에서 더 많은 창업자들에게 다가갈 수 있게 되었고, 창업자 관리 시스템은 업무 효율성을 크게 향상시켰습니다.",
+        author: "중장년기술창업센터장",
+      },
     },
     {
       title: "스타트업 B",
@@ -118,7 +126,7 @@ export default function PortfolioPage() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      {item.tech.map((tech, i) => (
+                      {item.tech?.map((tech, i) => (
                         <span key={i} className="px-3 py-1 bg-primary/20 text-accent rounded-full text-xs">
                           {tech}
                         </span>
@@ -168,9 +176,9 @@ export default function PortfolioPage() {
               {[
                 {
                   quote:
-                    "Growink 팀은 우리 기관의 비전을 정확히 이해하고 그에 맞는 최적의 솔루션을 제공해 주었습니다. 특히 관리자 대시보드 기능이 매우 효율적입니다.",
+                    "Growink 팀은 우리 기관의 비전을 정확히 이해하고 그에 맞는 최적의 솔루션을 제공해 주었습니다. 특히 창업자 관리 시스템 기능이 매우 효율적입니다.",
                   author: "김대표",
-                  company: "기관장",
+                  company: "중장년기술창업센터장",
                   rating: 5,
                 },
                 {
