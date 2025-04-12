@@ -13,7 +13,7 @@ export default function PortfolioPage() {
       description:
         "중장년기술창업센터를 위한 웹사이트 제작. 온라인 존재감을 향상시키고 창업자들을 위한 관리 시스템을 구축했습니다.",
       tags: ["Web Design", "Development", "UI/UX"],
-      image: "/images/portfolio-institution.png",
+      image: "/images/portfolio-cafe.png",
       results: [
         "창업자 관리 시스템",
         "창업 지원 신청 30% 증가",
