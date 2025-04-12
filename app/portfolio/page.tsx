@@ -8,29 +8,29 @@ import Link from "next/link"
 export default function PortfolioPage() {
   const portfolioItems = [
     {
-      title: "카페 A 브랜딩",
-      category: "웹사이트 & SNS 마케팅",
-      image: "/placeholder.svg?height=600&width=800",
+      title: "기관 웹페이지 제작",
+      category: "웹사이트",
+      image: "/images/portfolio-cafe.png",
       year: "2023",
-      results: ["매장 방문 2배 증가", "온라인 주문 150% 상승", "SNS 팔로워 3배 증가"],
+      results: ["관리자 대쉬보드", "온라인 주문 150% 상승", "SNS 팔로워 3배 증가"],
       tech: ["반응형 웹", "SEO 최적화", "데이터 분석"],
       description:
-        "로컬 카페의 온라인 존재감을 강화하고 디지털 주문 시스템을 구축하여 매출 증대에 기여했습니다. 브랜드 아이덴티티를 재정립하고 SNS 마케팅 전략을 수립하여 온라인 인지도를 크게 향상시켰습니다.",
+        "기관을 위한 웹사이트를 제작하여 온라인 존재감을 강화하고 효율적인 관리자 대쉬보드를 구축했습니다. 직관적인 UI/UX와 최적화된 성능으로 사용자 경험을 크게 향상시켰습니다.",
     },
     {
       title: "스타트업 B",
       category: "브랜딩 & 숏폼 영상",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/images/portfolio-startup.png",
       year: "2024",
-      results: ["SNS 팔로워 3배 증가", "투자 유치 성공", "브랜드 인지도 상승"],
+      results: ["매장 방문 2배 증가", "SNS 팔로워 3배 증가", "브랜드 인지도 상승"],
       tech: ["AI 편집", "바이럴 마케팅", "트래픽 분석"],
       description:
-        "혁신적인 제품을 가진 스타트업의 브랜드 스토리를 효과적으로 전달하는 숏폼 영상을 제작했습니다. 타겟 고객층에게 정확히 도달하는 마케팅 전략을 통해 투자 유치에 성공하는데 기여했습니다.",
+        "혁신적인 제품을 가진 스타트업의 브랜드 스토리를 효과적으로 전달하는 숏폼 영상을 제작했습니다. 타겟 고객층에게 정확히 도달하는 마케팅 전략을 통해 매장 방문이 2배 증가하는 성과를 이루었습니다.",
     },
     {
       title: "중소기업 C",
       category: "온라인 쇼핑몰 구축",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/images/portfolio-shop.jpg",
       year: "2023",
       results: ["온라인 매출 200% 증가", "고객 재방문율 45% 향상", "장바구니 전환율 개선"],
       tech: ["e-커머스 플랫폼", "결제 시스템 통합", "사용자 경험 최적화"],
@@ -168,14 +168,14 @@ export default function PortfolioPage() {
               {[
                 {
                   quote:
-                    "Growink 팀은 우리 브랜드의 비전을 정확히 이해하고 그에 맞는 최적의 솔루션을 제공해 주었습니다. 특히 데이터 기반의 접근 방식이 인상적이었습니다.",
+                    "Growink 팀은 우리 기관의 비전을 정확히 이해하고 그에 맞는 최적의 솔루션을 제공해 주었습니다. 특히 관리자 대시보드 기능이 매우 효율적입니다.",
                   author: "김대표",
-                  company: "카페 A 대표",
+                  company: "기관장",
                   rating: 5,
                 },
                 {
                   quote:
-                    "숏폼 영상 제작부터 SNS 마케팅까지 원스톱으로 지원받을 수 있어 매우 효율적이었습니다. 덕분에 짧은 시간 내에 브랜드 인지도를 크게 높일 수 있었습니다.",
+                    "숏폼 영상 제작부터 SNS 마케팅까지 원스톱으로 지원받을 수 있어 매우 효율적이었습니다. 덕분에 짧은 시간 내에 매장 방문 고객이 크게 증가했습니다.",
                   author: "이창업",
                   company: "스타트업 B 창업자",
                   rating: 5,

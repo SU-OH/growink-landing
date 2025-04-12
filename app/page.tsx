@@ -207,16 +207,16 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                title: "카페 A 브랜딩",
-                category: "웹사이트 & SNS 마케팅",
+                title: "기관 웹페이지 제작",
+                category: "웹사이트",
                 image: "/images/portfolio-cafe.png",
-                result: "매장 방문 2배 증가",
+                result: "관리자 대쉬보드",
               },
               {
                 title: "스타트업 B",
                 category: "브랜딩 & 숏폼 영상",
                 image: "/images/portfolio-startup.png",
-                result: "투자 유치 성공",
+                result: "매장 방문 2배 증가",
               },
               {
                 title: "중소기업 C",
