@@ -39,15 +39,15 @@ export default function AboutPage() {
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
-                <h2 className="text-3xl font-bold text-white mb-6 premium-heading">우리의 이야기</h2>
+                <h2 className="text-3xl font-bold text-white mb-6 premium-heading">우리의 이야기 (예비·초기창업가 버전)</h2>
                 <p className="text-white/80 mb-6 leading-relaxed">
-                  Growink는 2023년, 디지털 마케팅과 웹 개발 분야의 전문가들이 모여 창업자와 중소기업이 디지털 환경에서
-                  성공적으로 성장할 수 있도록 돕기 위해 설립되었습니다.
+                  Growink는 2023년, 디지털 마케팅과 웹 개발 분야 전문가들이 "초기 창업가와 예비 창업자"가 디지털 환경에서 빠르게 자리 잡고 성장하도록 돕기 위해 모여 탄생했습니다.
+                </p>
+                <p className="text-white/80 mb-6 leading-relaxed">
+                  우리는 스타트업의 속도와 소규모 비즈니스의 실질적 고민을 누구보다 잘 이해합니다. 웹사이트 개발부터 브랜드 홍보, 숏폼 영상 활용 등 최신 트렌드를 접목해, 한정된 자원으로도 가장 큰 임팩트를 낼 수 있는 솔루션을 제공합니다.
                 </p>
                 <p className="text-white/80 mb-8 leading-relaxed">
-                  우리는 최신 기술과 창의적인 접근 방식을 통해 고객의 브랜드가 경쟁이 치열한 디지털 시장에서 돋보이고
-                  성장할 수 있도록 지원합니다. 단순한 서비스 제공을 넘어, 고객의 비즈니스 목표를 이해하고 함께 성장하는
-                  파트너가 되고자 합니다.
+                  무엇보다, 단순 서비스 제공을 넘어 고객의 비즈니스 목표를 함께 고민하고, 성장 파트너로서 끊임없이 새로운 기회를 제안합니다. 초기 창업이라도 낮은 예산, 부족한 인력 때문에 포기하지 않도록, Growink가 든든한 동행이 되어드리겠습니다.
                 </p>
 
                 <div className="flex flex-wrap gap-4">
@@ -70,7 +70,7 @@ export default function AboutPage() {
                 <div className="aspect-square relative rounded-lg overflow-hidden elegant-shadow">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-transparent z-10"></div>
                   <img
-                    src="/placeholder.svg?height=600&width=600"
+                    src="/images/startup-team.png"
                     alt="Growink 팀"
                     className="w-full h-full object-cover"
                   />
