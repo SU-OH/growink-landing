@@ -7,9 +7,10 @@ import TechBackground from "@/components/tech-background"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Code, Film, Palette, BarChart, CheckCircle, Users, Award, Zap, TrendingUp } from "lucide-react"
-import TechCube from "@/components/tech-cube"
 import DataVisualization from "@/components/data-visualization"
 import CounterStat from "@/components/counter-stat"
+import GrowthJourney from "@/components/growth-journey"
+import TestimonialSlider from "@/components/testimonial-slider"
 
 export default function Home() {
   return (
@@ -150,11 +151,11 @@ export default function Home() {
             <div className="relative">
               {/* 인터랙티브 데이터 시각화 섹션 */}
               <div className="grid grid-cols-1 gap-6 relative">
-                {/* 기술 스택 큐브 */}
+                {/* 성장 여정 */}
                 <div className="bg-[#0F172A]/80 backdrop-blur-md p-6 rounded-lg border border-accent/20 elegant-shadow">
-                  <h3 className="text-xl font-bold text-white mb-4">성장하는 기술력</h3>
+                  <h3 className="text-xl font-bold text-white mb-4">성장의 여정</h3>
                   <div className="flex justify-center">
-                    <TechCube />
+                    <GrowthJourney />
                   </div>
                 </div>
                 
@@ -162,6 +163,11 @@ export default function Home() {
                 <div className="bg-[#0F172A]/80 backdrop-blur-md p-6 rounded-lg border border-accent/20 elegant-shadow">
                   <h3 className="text-xl font-bold text-white mb-4">성장 지표</h3>
                   <DataVisualization />
+                </div>
+                
+                {/* 고객 후기 */}
+                <div className="bg-[#0F172A]/80 backdrop-blur-md p-6 rounded-lg border border-accent/20 elegant-shadow h-64">
+                  <TestimonialSlider />
                 </div>
                 
                 {/* 실시간 카운터 */}
