@@ -7,7 +7,6 @@ import TechBackground from "@/components/tech-background"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Code, Film, Palette, BarChart, CheckCircle, Users, Award, Zap, TrendingUp } from "lucide-react"
-import DataVisualization from "@/components/data-visualization"
 import CounterStat from "@/components/counter-stat"
 import GrowthJourney from "@/components/growth-journey"
 import TestimonialSlider from "@/components/testimonial-slider"
@@ -162,45 +161,109 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 성장 지표 섹션 */}
+      {/* 성공 사례 하이라이트 섹션 */}
       <section className="py-24 bg-black/30 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <div className="premium-badge mb-4 mx-auto block">GROWTH METRICS</div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 premium-heading inline-block">성장 지표</h2>
+              <div className="premium-badge mb-4 mx-auto block">SUCCESS STORIES</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 premium-heading inline-block">주목할만한 성공 사례</h2>
               <p className="text-lg text-white/80 max-w-2xl mx-auto">
-                실제 데이터를 기반으로 한 Growink의 성장 지표를 확인해보세요.
+                Growink와 함께 놀라운 성장을 이룬 실제 성공 사례를 만나보세요.
               </p>
             </div>
             
-            <div className="bg-[#0F172A]/80 backdrop-blur-md p-8 rounded-lg border border-accent/20 elegant-shadow">
-              <DataVisualization />
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-                <div className="bg-[#171f3a] p-6 rounded-lg border border-[#2a365a] elegant-shadow animate-float">
-                  <CounterStat 
-                    icon={<Award className="h-8 w-8 text-accent" />}
-                    label="프로젝트 성공률"
-                    value={98}
-                    suffix="%"
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* 성공 사례 카드 1 */}
+              <div className="bg-[#0F172A]/80 backdrop-blur-md rounded-lg border border-accent/20 elegant-shadow overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300">
+                <div className="relative h-48">
+                  <img 
+                    src="/images/portfolio-cafe.png" 
+                    alt="기관 웹페이지 제작" 
+                    className="w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 flex items-center">
+                    <span className="px-2 py-1 bg-accent/20 rounded text-xs text-accent mr-2">웹사이트</span>
+                    <h3 className="text-xl font-bold text-white">기관 웹페이지 제작</h3>
+                  </div>
                 </div>
-                
-                <div className="bg-[#171f3a] p-6 rounded-lg border border-[#2a365a] elegant-shadow animate-float animation-delay-200">
-                  <CounterStat 
-                    icon={<Users className="h-8 w-8 text-accent" />}
-                    label="고객 만족도"
-                    value={95}
-                    suffix="%"
-                  />
+                <div className="p-5">
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-center text-white/80">
+                      <span className="w-2 h-2 bg-accent rounded-full mr-2"></span>
+                      <span>창업자 관리 시스템 구축</span>
+                    </li>
+                    <li className="flex items-center text-white/80">
+                      <span className="w-2 h-2 bg-accent rounded-full mr-2"></span>
+                      <span>창업 지원 신청 30% 증가</span>
+                    </li>
+                    <li className="flex items-center text-white/80">
+                      <span className="w-2 h-2 bg-accent rounded-full mr-2"></span>
+                      <span>교육 참여율 45% 향상</span>
+                    </li>
+                  </ul>
+                  <div className="text-right">
+                    <Button asChild variant="link" className="text-accent p-0 hover:text-accent/80">
+                      <Link href="/portfolio" className="flex items-center justify-end">
+                        자세히 보기 <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
+              
+              {/* 성공 사례 카드 2 */}
+              <div className="bg-[#0F172A]/80 backdrop-blur-md rounded-lg border border-accent/20 elegant-shadow overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300">
+                <div className="relative h-48">
+                  <img 
+                    src="/images/portfolio-startup.png" 
+                    alt="스타트업 B" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 flex items-center">
+                    <span className="px-2 py-1 bg-accent/20 rounded text-xs text-accent mr-2">브랜딩 & 숏폼</span>
+                    <h3 className="text-xl font-bold text-white">스타트업 B</h3>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-center text-white/80">
+                      <span className="w-2 h-2 bg-accent rounded-full mr-2"></span>
+                      <span>매장 방문 고객 2배 증가</span>
+                    </li>
+                    <li className="flex items-center text-white/80">
+                      <span className="w-2 h-2 bg-accent rounded-full mr-2"></span>
+                      <span>SNS 팔로워 3배 증가</span>
+                    </li>
+                    <li className="flex items-center text-white/80">
+                      <span className="w-2 h-2 bg-accent rounded-full mr-2"></span>
+                      <span>브랜드 인지도 대폭 상승</span>
+                    </li>
+                  </ul>
+                  <div className="text-right">
+                    <Button asChild variant="link" className="text-accent p-0 hover:text-accent/80">
+                      <Link href="/portfolio" className="flex items-center justify-end">
+                        자세히 보기 <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center mt-10">
+              <Button asChild className="premium-button">
+                <Link href="/portfolio" className="flex items-center">
+                  모든 성공 사례 보기 <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* 고객 후기 섹션 */}
       <section className="py-24 relative premium-section">
         <div className="absolute inset-0 -z-10">
