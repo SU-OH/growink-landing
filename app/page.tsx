@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Navbar from "@/components/navbar"
 import HeroSection from "@/components/hero-section"
 import Footer from "@/components/footer"
@@ -13,6 +14,22 @@ import GrowthJourney from "@/components/growth-journey"
 import TestimonialSlider from "@/components/testimonial-slider"
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState('data');
+
+  // 탭 자동 전환 효과
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTab(prev => prev === 'data' ? 'review' : 'data');
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  // 탭 전환 함수
+  const switchTab = (tab: string) => {
+    setActiveTab(tab);
+  };
+
   return (
     <main className="min-h-screen flex flex-col relative overflow-hidden bg-[#0F172A]">
       <Navbar />
@@ -149,45 +166,57 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              {/* 인터랙티브 데이터 시각화 섹션 */}
-              <div className="grid grid-cols-1 gap-6 relative">
+              {/* 데이터 시각화 섹션 - 더 깔끔한 레이아웃으로 재구성 */}
+              <div className="space-y-6 relative">
                 {/* 성장 여정 */}
                 <div className="bg-[#0F172A]/80 backdrop-blur-md p-6 rounded-lg border border-accent/20 elegant-shadow">
-                  <h3 className="text-xl font-bold text-white mb-4">성장의 여정</h3>
-                  <div className="flex justify-center">
-                    <GrowthJourney />
-                  </div>
+                  <h3 className="text-xl font-bold text-white mb-4 text-center">성장의 여정</h3>
+                  <GrowthJourney />
                 </div>
                 
-                {/* 데이터 시각화 */}
+                {/* 탭 인터페이스로 성장 지표와 고객 후기를 번갈아 표시 */}
                 <div className="bg-[#0F172A]/80 backdrop-blur-md p-6 rounded-lg border border-accent/20 elegant-shadow">
-                  <h3 className="text-xl font-bold text-white mb-4">성장 지표</h3>
-                  <DataVisualization />
-                </div>
-                
-                {/* 고객 후기 */}
-                <div className="bg-[#0F172A]/80 backdrop-blur-md p-6 rounded-lg border border-accent/20 elegant-shadow h-64">
-                  <TestimonialSlider />
-                </div>
-                
-                {/* 실시간 카운터 */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-[#0F172A]/80 backdrop-blur-md p-6 rounded-lg border border-accent/20 elegant-shadow animate-float">
-                    <CounterStat 
-                      icon={<Award className="h-6 w-6 text-accent" />}
-                      label="프로젝트 성공률"
-                      value={98}
-                      suffix="%"
-                    />
+                  <div className="flex mb-5 border-b border-accent/20">
+                    <button
+                      onClick={() => switchTab('data')}
+                      className={`px-4 py-2 border-b-2 transition-colors ${activeTab === 'data' ? 'text-accent border-accent' : 'text-white/70 border-transparent'}`}
+                    >
+                      성장 지표
+                    </button>
+                    <button
+                      onClick={() => switchTab('review')}
+                      className={`px-4 py-2 border-b-2 transition-colors ${activeTab === 'review' ? 'text-accent border-accent' : 'text-white/70 border-transparent'}`}
+                    >
+                      고객 후기
+                    </button>
                   </div>
                   
-                  <div className="bg-[#0F172A]/80 backdrop-blur-md p-6 rounded-lg border border-accent/20 elegant-shadow animate-float animation-delay-200">
-                    <CounterStat 
-                      icon={<Users className="h-6 w-6 text-accent" />}
-                      label="고객 만족도"
-                      value={95}
-                      suffix="%"
-                    />
+                  <div className={`min-h-[300px] ${activeTab === 'data' ? 'block' : 'hidden'}`}>
+                    <DataVisualization />
+                    
+                    <div className="grid grid-cols-2 gap-4 mt-6">
+                      <div className="bg-[#171f3a] p-4 rounded-lg border border-[#2a365a] elegant-shadow animate-float">
+                        <CounterStat 
+                          icon={<Award className="h-6 w-6 text-accent" />}
+                          label="프로젝트 성공률"
+                          value={98}
+                          suffix="%"
+                        />
+                      </div>
+                      
+                      <div className="bg-[#171f3a] p-4 rounded-lg border border-[#2a365a] elegant-shadow animate-float animation-delay-200">
+                        <CounterStat 
+                          icon={<Users className="h-6 w-6 text-accent" />}
+                          label="고객 만족도"
+                          value={95}
+                          suffix="%"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className={`min-h-[300px] ${activeTab === 'review' ? 'block' : 'hidden'}`}>
+                    <TestimonialSlider />
                   </div>
                 </div>
               </div>
