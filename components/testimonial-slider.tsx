@@ -10,21 +10,27 @@ export default function TestimonialSlider() {
   const testimonials = [
     {
       quote: "Growink 팀은 우리 브랜드의 비전을 정확히 이해하고 그에 맞는 최적의 솔루션을 제공해 주었습니다.",
-      author: "김대표",
+      author: "김**",
       company: "중장년기술창업센터장",
       rating: 5
     },
     {
       quote: "단기간에 브랜드 인지도를 크게 높이는데 도움을 주었습니다. 특히 숏폼 영상이 효과적이었습니다.",
-      author: "이창업",
+      author: "이**",
       company: "스타트업 B 창업자",
       rating: 5
     },
     {
       quote: "온라인 쇼핑몰 구축 후 온라인 매출이 200% 증가했습니다. 전문적인 팀과 함께해 만족스럽습니다.",
-      author: "박사장",
+      author: "박**",
       company: "중소기업 C 대표",
       rating: 4
+    },
+    {
+      quote: "비용이 저렴하면서도 완성도가 높았습니다. 초보자인 저에게 하나부터 열까지 친절하게 설명해주셨고, 작업속도도 빨라서 정말 감동적이었습니다. 고수가 아니라 천재세요! 타 업체와 비교할 필요 없이 무조건 강추합니다!",
+      author: "서**",
+      company: "중소기업 D 대표",
+      rating: 5
     }
   ]
 
