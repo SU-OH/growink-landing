@@ -1,6 +1,5 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Navbar from "@/components/navbar"
 import HeroSection from "@/components/hero-section"
 import Footer from "@/components/footer"
@@ -14,22 +13,6 @@ import GrowthJourney from "@/components/growth-journey"
 import TestimonialSlider from "@/components/testimonial-slider"
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState('data');
-
-  // 탭 자동 전환 효과
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTab(prev => prev === 'data' ? 'review' : 'data');
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, []);
-
-  // 탭 전환 함수
-  const switchTab = (tab: string) => {
-    setActiveTab(tab);
-  };
-
   return (
     <main className="min-h-screen flex flex-col relative overflow-hidden bg-[#0F172A]">
       <Navbar />
@@ -166,63 +149,75 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              {/* 데이터 시각화 섹션 - 더 깔끔한 레이아웃으로 재구성 */}
-              <div className="space-y-6 relative">
-                {/* 성장 여정 */}
-                <div className="bg-[#0F172A]/80 backdrop-blur-md p-6 rounded-lg border border-accent/20 elegant-shadow">
-                  <h3 className="text-xl font-bold text-white mb-4 text-center">성장의 여정</h3>
-                  <GrowthJourney />
-                </div>
-                
-                {/* 탭 인터페이스로 성장 지표와 고객 후기를 번갈아 표시 */}
-                <div className="bg-[#0F172A]/80 backdrop-blur-md p-6 rounded-lg border border-accent/20 elegant-shadow">
-                  <div className="flex mb-5 border-b border-accent/20">
-                    <button
-                      onClick={() => switchTab('data')}
-                      className={`px-4 py-2 border-b-2 transition-colors ${activeTab === 'data' ? 'text-accent border-accent' : 'text-white/70 border-transparent'}`}
-                    >
-                      성장 지표
-                    </button>
-                    <button
-                      onClick={() => switchTab('review')}
-                      className={`px-4 py-2 border-b-2 transition-colors ${activeTab === 'review' ? 'text-accent border-accent' : 'text-white/70 border-transparent'}`}
-                    >
-                      고객 후기
-                    </button>
-                  </div>
-                  
-                  <div className={`min-h-[300px] ${activeTab === 'data' ? 'block' : 'hidden'}`}>
-                    <DataVisualization />
-                    
-                    <div className="grid grid-cols-2 gap-4 mt-6">
-                      <div className="bg-[#171f3a] p-4 rounded-lg border border-[#2a365a] elegant-shadow animate-float">
-                        <CounterStat 
-                          icon={<Award className="h-6 w-6 text-accent" />}
-                          label="프로젝트 성공률"
-                          value={98}
-                          suffix="%"
-                        />
-                      </div>
-                      
-                      <div className="bg-[#171f3a] p-4 rounded-lg border border-[#2a365a] elegant-shadow animate-float animation-delay-200">
-                        <CounterStat 
-                          icon={<Users className="h-6 w-6 text-accent" />}
-                          label="고객 만족도"
-                          value={95}
-                          suffix="%"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className={`min-h-[300px] ${activeTab === 'review' ? 'block' : 'hidden'}`}>
-                    <TestimonialSlider />
-                  </div>
-                </div>
+              {/* 성장 여정 - 왜 Growink를 선택해야 할까요? 섹션에 함께 표시 */}
+              <div className="bg-[#0F172A]/80 backdrop-blur-md p-6 rounded-lg border border-accent/20 elegant-shadow">
+                <h3 className="text-xl font-bold text-white mb-4 text-center">성장의 여정</h3>
+                <GrowthJourney />
               </div>
               
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/10 rounded-full blur-2xl"></div>
               <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 성장 지표 섹션 */}
+      <section className="py-24 bg-black/30 backdrop-blur-sm">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="premium-badge mb-4 mx-auto block">GROWTH METRICS</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 premium-heading inline-block">성장 지표</h2>
+              <p className="text-lg text-white/80 max-w-2xl mx-auto">
+                실제 데이터를 기반으로 한 Growink의 성장 지표를 확인해보세요.
+              </p>
+            </div>
+            
+            <div className="bg-[#0F172A]/80 backdrop-blur-md p-8 rounded-lg border border-accent/20 elegant-shadow">
+              <DataVisualization />
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+                <div className="bg-[#171f3a] p-6 rounded-lg border border-[#2a365a] elegant-shadow animate-float">
+                  <CounterStat 
+                    icon={<Award className="h-8 w-8 text-accent" />}
+                    label="프로젝트 성공률"
+                    value={98}
+                    suffix="%"
+                  />
+                </div>
+                
+                <div className="bg-[#171f3a] p-6 rounded-lg border border-[#2a365a] elegant-shadow animate-float animation-delay-200">
+                  <CounterStat 
+                    icon={<Users className="h-8 w-8 text-accent" />}
+                    label="고객 만족도"
+                    value={95}
+                    suffix="%"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* 고객 후기 섹션 */}
+      <section className="py-24 relative premium-section">
+        <div className="absolute inset-0 -z-10">
+          <TechBackground />
+        </div>
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="premium-badge mb-4 mx-auto block">TESTIMONIALS</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 premium-heading inline-block">고객 후기</h2>
+              <p className="text-lg text-white/80 max-w-2xl mx-auto">
+                Growink와 함께 성장한 고객들의 생생한 후기를 확인하세요.
+              </p>
+            </div>
+            
+            <div className="bg-[#0F172A]/80 backdrop-blur-md p-8 rounded-lg border border-accent/20 elegant-shadow h-96">
+              <TestimonialSlider />
             </div>
           </div>
         </div>
