@@ -1,0 +1,13 @@
+# 모든 검색 엔진 크롤러에 허용
+User-agent: *
+Allow: /
+
+# 네이버 검색 로봇에 특별히 허용
+User-agent: Yeti
+Allow: /
+
+# 사이트맵 경로 지정
+Sitemap: https://growink.co.kr/sitemap.xml
+
+# 개인정보 관련 페이지 제외
+Disallow: /admin/ 

@@ -1,3 +1,7 @@
+import { homeMetadata } from "./metadata"
+
+export const metadata = homeMetadata
+
 "use client"
 
 import Navbar from "@/components/navbar"
@@ -10,12 +14,78 @@ import { ArrowRight, Code, Film, Palette, BarChart, CheckCircle, Users, Award, Z
 import CounterStat from "@/components/counter-stat"
 import GrowthJourney from "@/components/growth-journey"
 import TestimonialSlider from "@/components/testimonial-slider"
+import Script from "next/script"
 
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col relative overflow-hidden bg-[#0F172A]">
       <Navbar />
       <HeroSection />
+
+      {/* 구조화된 데이터 - 로컬 비즈니스 정보 */}
+      <Script 
+        id="local-business-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Growink",
+            "image": "https://growink.co.kr/images/growink-logo.png",
+            "url": "https://growink.co.kr",
+            "description": "웹사이트 제작, 숏폼 영상 제작, 브랜딩 및 마케팅 서비스를 제공하는 Growink입니다.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "어내들로5",
+              "addressLocality": "의왕시",
+              "addressRegion": "경기도",
+              "postalCode": "",
+              "addressCountry": "KR"
+            },
+            "telephone": "010-4903-7642",
+            "email": "growink.ai@gmail.com",
+            "priceRange": "₩₩",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
+              ],
+              "opens": "09:00",
+              "closes": "18:00"
+            },
+            "sameAs": [
+              "https://instagram.com/growink",
+              "https://youtube.com/growink"
+            ]
+          })
+        }}
+      />
+
+      {/* 구조화된 데이터 - 서비스 정보 */}
+      <Script 
+        id="services-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "웹사이트 제작, 숏폼 제작, 브랜딩",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Growink"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "대한민국"
+            },
+            "description": "웹사이트 제작, 숏폼 영상 제작, 브랜딩 및 마케팅 서비스를 제공하는 Growink입니다.",
+            "offers": {
+              "@type": "Offer",
+              "url": "https://growink.co.kr/services"
+            }
+          })
+        }}
+      />
 
       {/* Services Preview Section */}
       <section className="py-24 bg-black/30 backdrop-blur-sm relative">

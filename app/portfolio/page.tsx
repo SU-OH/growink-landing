@@ -4,6 +4,9 @@ import TechBackground from "@/components/tech-background"
 import { ArrowRight, Star, TrendingUp, Users, Award } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { portfolioMetadata } from "../metadata"
+
+export const metadata = portfolioMetadata
 
 export default function PortfolioPage() {
   const portfolioItems = [

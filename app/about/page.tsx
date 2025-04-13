@@ -4,6 +4,9 @@ import TechBackground from "@/components/tech-background"
 import { Code, Database, Cpu, Users, Target, Lightbulb, Award, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { aboutMetadata } from "../metadata"
+
+export const metadata = aboutMetadata
 
 export default function AboutPage() {
   return (

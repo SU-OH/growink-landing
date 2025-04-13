@@ -20,6 +20,9 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { servicesMetadata } from "../metadata"
+
+export const metadata = servicesMetadata
 
 export default function ServicesPage() {
   const services = [

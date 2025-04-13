@@ -3,6 +3,9 @@ import Footer from "@/components/footer"
 import TechBackground from "@/components/tech-background"
 import ContactForm from "@/components/contact-form"
 import { Mail, Phone, MapPin, Clock, ArrowRight } from "lucide-react"
+import { contactMetadata } from "../metadata"
+
+export const metadata = contactMetadata
 
 export default function ContactPage() {
   return (
