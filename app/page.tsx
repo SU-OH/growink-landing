@@ -1,7 +1,3 @@
-import { homeMetadata } from "./metadata"
-
-export const metadata = homeMetadata
-
 "use client"
 
 import Navbar from "@/components/navbar"
