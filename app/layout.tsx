@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   },
   generator: 'Growink',
   other: {
-    "naver-site-verification": "네이버 웹마스터 도구에서 발급받은 인증 코드를 여기에 입력하세요"
+    "naver-site-verification": "20b0a6cc203a2f68758f8c609b4b9599cbac8a12"
   }
 }
 
@@ -75,6 +75,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className="scroll-smooth">
       <head>
+        <meta name="naver-site-verification" content="20b0a6cc203a2f68758f8c609b4b9599cbac8a12" />
         <meta name="NaverBot" content="All" />
         <meta name="NaverBot" content="index,follow" />
         <meta name="Yeti" content="All" />
@@ -101,7 +102,7 @@ export default function RootLayout({
         {/* 네이버 사이트 인증 - 네이버 서치어드바이저에서 발급받은 코드로 교체하세요 */}
         <Script id="naver-site-verification" strategy="afterInteractive">
           {`
-            window.naver_key="네이버_사이트_확인_키_입력";
+            window.naver_key="20b0a6cc203a2f68758f8c609b4b9599cbac8a12";
           `}
         </Script>
       </body>

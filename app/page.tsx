@@ -52,7 +52,10 @@ export default function Home() {
             "sameAs": [
               "https://instagram.com/growink",
               "https://youtube.com/growink"
-            ]
+            ],
+            other: {
+              "naver-site-verification": "20b0a6cc203a2f68758f8c609b4b9599cbac8a12"
+            }
           })
         }}
       />
@@ -461,6 +464,14 @@ export default function Home() {
       </section>
 
       <Footer />
+
+      <Script
+        id="naver-verification"
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `window.naver_key="20b0a6cc203a2f68758f8c609b4b9599cbac8a12";`
+        }}
+      />
     </main>
   )
 }
