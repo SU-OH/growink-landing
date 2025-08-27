@@ -11,6 +11,7 @@ import CounterStat from "@/components/counter-stat"
 import GrowthJourney from "@/components/growth-journey"
 import TestimonialSlider from "@/components/testimonial-slider"
 import Script from "next/script"
+import { motion } from "framer-motion"
 
 export default function Home() {
   return (
@@ -86,77 +87,145 @@ export default function Home() {
         }}
       />
 
-      {/* Services Preview Section */}
-      <section className="py-24 bg-black/30 backdrop-blur-sm relative">
-        <div className="circuit-pattern opacity-20"></div>
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="premium-badge mb-4 mx-auto block">OUR SERVICES</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 premium-heading inline-block">
-              전문적인 디지털 솔루션
-            </h2>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              Growink는 웹사이트 제작, 숏폼 영상 제작, 브랜딩 및 마케팅 서비스를 통해 당신의 브랜드를 성장시키고 세상과
-              연결해 드립니다.
-            </p>
+      {/* Modern Services Preview Section */}
+      <section className="py-32 relative mesh-gradient floating-orbs overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse animation-delay-500"></div>
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="premium-badge mb-6 mx-auto block"
+            >
+              ✨ OUR PREMIUM SERVICES 2025
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-5xl md:text-6xl font-black text-white mb-8 leading-tight"
+            >
+              <span className="modern-heading">혁신적인 디지털</span>
+              <br />
+              <span className="glass-text">솔루션 생태계</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-xl glass-text max-w-3xl mx-auto leading-relaxed"
+            >
+              브랜드의 디지털 전환을 이끄는 종합 솔루션 파트너로서,
+              <br className="hidden md:block" />
+              창의성과 기술력을 결합한 맞춤형 서비스를 제공합니다.
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {[
               {
-                icon: <Code className="h-8 w-8 text-accent" />,
-                title: "웹 제작",
-                desc: "최신 기술로 구현하는 반응형 웹사이트",
-                features: ["빠른 제작", "반응형 디자인", "SEO 최적화"],
+                icon: "🌐",
+                title: "웹 개발",
+                desc: "차세대 기술로 구현하는 인터랙티브 웹 경험",
+                features: ["AI 기반 UX", "웹3.0 호환", "실시간 분석"],
                 href: "/services",
+                gradient: "from-blue-500 to-purple-600",
+                delay: 0.1
               },
               {
-                icon: <Film className="h-8 w-8 text-accent" />,
-                title: "숏폼 영상",
-                desc: "트렌디한 숏폼 콘텐츠로 브랜드 인지도 향상",
-                features: ["트렌디한 편집", "브랜드 맞춤형", "SNS 최적화"],
+                icon: "🎬",
+                title: "숏폼 크리에이티브",
+                desc: "바이럴 콘텐츠 제작과 브랜드 스토리텔링",
+                features: ["AI 편집 도구", "트렌드 분석", "멀티 플랫폼"],
                 href: "/services",
+                gradient: "from-pink-500 to-red-600",
+                delay: 0.2
               },
               {
-                icon: <Palette className="h-8 w-8 text-accent" />,
-                title: "브랜딩",
-                desc: "차별화된 브랜드 아이덴티티 구축",
-                features: ["로고 디자인", "브랜드 전략", "시각적 아이덴티티"],
+                icon: "🎨",
+                title: "브랜드 아이덴티티",
+                desc: "감각적 디자인과 브랜드 경험 설계",
+                features: ["디자인 시스템", "브랜드 가이드", "UI/UX 통합"],
                 href: "/services",
+                gradient: "from-purple-500 to-indigo-600",
+                delay: 0.3
               },
               {
-                icon: <BarChart className="h-8 w-8 text-accent" />,
-                title: "마케팅",
-                desc: "데이터 기반 디지털 마케팅 전략",
-                features: ["SNS 마케팅", "성과 분석", "타겟 마케팅"],
+                icon: "📈",
+                title: "디지털 마케팅",
+                desc: "데이터 드리븐 성장 전략과 자동화",
+                features: ["AI 마케팅", "성과 최적화", "고객 여정"],
                 href: "/services",
+                gradient: "from-green-500 to-teal-600",
+                delay: 0.4
               },
             ].map((service, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="premium-card p-8 rounded-lg elegant-shadow group hover:translate-y-[-10px] transition-all duration-500"
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: service.delay, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+                whileHover={{ y: -12, scale: 1.03, rotate: 1 }}
+                className="group relative"
               >
-                <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-6">
-                  {service.icon}
+                <div className="premium-card p-8 h-full relative overflow-hidden">
+                  {/* Animated Background Gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                  
+                  {/* Icon with enhanced styling */}
+                  <motion.div
+                    className="w-20 h-20 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300"
+                    whileHover={{ rotate: 10, scale: 1.2 }}
+                  >
+                    <span className="text-4xl group-hover:animate-bounceScale">
+                      {service.icon}
+                    </span>
+                  </motion.div>
+
+                  <h3 className="text-2xl font-black text-white mb-4 group-hover:text-yellow-400 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="glass-text mb-8 leading-relaxed text-base">
+                    {service.desc}
+                  </p>
+                  
+                  <ul className="space-y-4 mb-8">
+                    {service.features.map((feature, j) => (
+                      <motion.li 
+                        key={j} 
+                        className="flex items-center text-white/80 group-hover:text-white transition-colors duration-300"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: service.delay + (j * 0.1), duration: 0.4 }}
+                      >
+                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 mr-3 group-hover:scale-125 transition-transform duration-300" />
+                        <span className="font-medium">{feature}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                  
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button asChild variant="link" className="text-yellow-400 p-0 hover:text-yellow-300 group/btn">
+                      <Link href={service.href} className="flex items-center font-semibold">
+                        자세히 알아보기 
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                      </Link>
+                    </Button>
+                  </motion.div>
+
+                  {/* Animated border effect */}
+                  <div className="absolute inset-0 rounded-2xl border border-transparent bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-yellow-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-white/70 mb-6">{service.desc}</p>
-                <ul className="space-y-3 mb-6">
-                  {service.features.map((feature, j) => (
-                    <li key={j} className="flex items-center text-white/80">
-                      <CheckCircle className="h-4 w-4 text-accent mr-3 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button asChild variant="link" className="text-accent p-0 hover:text-accent/80">
-                  <Link href={service.href} className="flex items-center">
-                    자세히 보기 <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
