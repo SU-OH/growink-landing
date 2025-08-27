@@ -59,27 +59,121 @@ export default function HeroSection() {
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-background/80 via-background to-background"
       style={{ y, opacity }}
     >
-      {/* Enhanced Background Elements */}
-      <div className="absolute inset-0 z-0">
-        {/* Gradient Mesh Background */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background opacity-70"></div>
+      {/* Enhanced Background Elements with Geometric Patterns */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Main gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-primary/5"></div>
         
-        {/* Animated Grid Lines */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,theme(colors.border/5)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.border/5)_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-        
-        {/* Animated Background Orbs with more subtle, professional appearance */}
-        <motion.div 
-          className="absolute top-20 left-20 w-96 h-96 rounded-full bg-primary/5 blur-[120px]"
+        {/* Geometric grid overlay with multiple layers */}
+        <div
+          className="absolute inset-0 opacity-20"
           style={{
-            transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 20}px)`
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
           }}
         />
-        <motion.div 
-          className="absolute bottom-40 right-32 w-80 h-80 rounded-full bg-accent/5 blur-[100px]"
+
+        {/* Diagonal lines overlay for additional texture */}
+        <div
+          className="absolute inset-0 opacity-10"
           style={{
-            transform: `translate(${mousePosition.x * -15}px, ${mousePosition.y * -15}px)`
+            backgroundImage: `
+              linear-gradient(45deg, rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(-45deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: "40px 40px",
           }}
         />
+
+        {/* Animated Elegant Shapes */}
+        <motion.div
+          initial={{ opacity: 0, y: -150, rotate: -3 }}
+          animate={{ opacity: 1, y: 0, rotate: 12 }}
+          transition={{ duration: 2.4, delay: 0.3, ease: [0.23, 0.86, 0.39, 0.96] }}
+          className="absolute left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
+        >
+          <motion.div
+            animate={{ y: [0, 15, 0] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            style={{ width: 600, height: 140 }}
+            className="relative"
+          >
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/[0.15] to-transparent backdrop-blur-[2px] border-2 border-white/[0.15] shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] after:absolute after:inset-0 after:rounded-full after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]" />
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: -150, rotate: 0 }}
+          animate={{ opacity: 1, y: 0, rotate: -15 }}
+          transition={{ duration: 2.4, delay: 0.5, ease: [0.23, 0.86, 0.39, 0.96] }}
+          className="absolute right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
+        >
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            style={{ width: 500, height: 120 }}
+            className="relative"
+          >
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-accent/[0.15] to-transparent backdrop-blur-[2px] border-2 border-white/[0.15] shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] after:absolute after:inset-0 after:rounded-full after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]" />
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: -150, rotate: 7 }}
+          animate={{ opacity: 1, y: 0, rotate: -8 }}
+          transition={{ duration: 2.4, delay: 0.4, ease: [0.23, 0.86, 0.39, 0.96] }}
+          className="absolute left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
+        >
+          <motion.div
+            animate={{ y: [0, 20, 0] }}
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+            style={{ width: 300, height: 80 }}
+            className="relative"
+          >
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-500/[0.15] to-transparent backdrop-blur-[2px] border-2 border-white/[0.15] shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] after:absolute after:inset-0 after:rounded-full after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]" />
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: -150, rotate: 5 }}
+          animate={{ opacity: 1, y: 0, rotate: 20 }}
+          transition={{ duration: 2.4, delay: 0.6, ease: [0.23, 0.86, 0.39, 0.96] }}
+          className="absolute right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
+        >
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            style={{ width: 200, height: 60 }}
+            className="relative"
+          >
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500/[0.15] to-transparent backdrop-blur-[2px] border-2 border-white/[0.15] shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] after:absolute after:inset-0 after:rounded-full after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]" />
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: -150, rotate: -10 }}
+          animate={{ opacity: 1, y: 0, rotate: -25 }}
+          transition={{ duration: 2.4, delay: 0.7, ease: [0.23, 0.86, 0.39, 0.96] }}
+          className="absolute left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
+        >
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+            style={{ width: 150, height: 40 }}
+            className="relative"
+          >
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/[0.15] to-transparent backdrop-blur-[2px] border-2 border-white/[0.15] shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] after:absolute after:inset-0 after:rounded-full after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]" />
+          </motion.div>
+        </motion.div>
+
+        {/* Subtle radial gradient overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.03] via-transparent to-rose-500/[0.03] blur-3xl" />
+        
+        {/* Final gradient overlay for content readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/40 pointer-events-none" />
       </div>
 
       {/* Main Content Container */}
