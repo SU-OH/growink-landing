@@ -142,61 +142,45 @@ export default function HeroSection() {
                 >
                   당신의 브랜드를
                 </motion.span>
-                <div className="relative flex items-center justify-center space-x-6 mb-6">
-                  {/* Background gradient effects */}
-                  <div className="absolute inset-0 -z-10">
-                    <div className="absolute left-1/4 top-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-                    <div className="absolute right-1/4 top-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-                  </div>
-                  
+                <div className="text-center space-y-6 mb-8">
                   <motion.div
-                    className="relative group"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.8, duration: 0.6 }}
+                    className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
                   >
-                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
-                    <span className="relative modern-heading bg-gradient-to-r from-blue-400 via-purple-400 to-blue-300 bg-clip-text text-transparent font-extrabold animate-textGlow">
+                    <span className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight">
                       성장시키고
                     </span>
-                  </motion.div>
-                  
-                  <motion.div
-                    className="relative flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 shadow-2xl shadow-amber-500/25"
-                    initial={{ opacity: 0, rotate: -180 }}
-                    animate={{ opacity: 1, rotate: 0 }}
-                    transition={{ delay: 1, duration: 0.8, type: "spring" }}
-                    whileHover={{ scale: 1.1, rotate: 360 }}
-                  >
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 animate-ping opacity-20"></div>
-                    <span className="text-white text-2xl font-bold relative z-10">+</span>
-                  </motion.div>
-                  
-                  <motion.div
-                    className="relative group"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1.2, duration: 0.6 }}
-                  >
-                    <div className="absolute -inset-2 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
-                    <span className="relative modern-heading bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-300 bg-clip-text text-transparent font-extrabold animate-textGlow">
+                    <div className="flex items-center justify-center w-3 h-3 md:w-4 md:h-4 rounded-full bg-accent opacity-60">
+                    </div>
+                    <span className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight">
                       연결하는
                     </span>
                   </motion.div>
-                </div>
-                <motion.div 
-                  className="relative inline-block"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.4, duration: 0.6 }}
-                >
-                  <span className="glass-text font-black">디지털 파트너</span>
+                  
                   <motion.div
+                    className="w-16 h-px bg-accent/40 mx-auto"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
-                    transition={{ delay: 1.8, duration: 1, ease: [0.4, 0, 0.2, 1] }}
-                    className="absolute -bottom-4 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-yellow-400 origin-left rounded-full"
+                    transition={{ delay: 1.2, duration: 1.2, ease: "easeInOut" }}
                   />
+                </div>
+                <motion.div 
+                  className="text-center space-y-4"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.4, duration: 1 }}
+                >
+                  <h1 className="text-2xl md:text-3xl lg:text-4xl font-light text-white tracking-wide">
+                    디지털 파트너
+                  </h1>
+                  <div className="max-w-xl mx-auto">
+                    <p className="text-base md:text-lg text-white/80 leading-relaxed font-light">
+                      전문적이고 체계적인 디지털 솔루션으로<br className="hidden md:block" />
+                      귀하의 비즈니스 성장을 함께 만들어갑니다
+                    </p>
+                  </div>
                 </motion.div>
               </h1>
             </motion.div>
