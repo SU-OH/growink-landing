@@ -9,30 +9,54 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2, AlertCircle, CheckCircle } from "lucide-react"
-import { createAdminUser } from "@/lib/admin-utils"
+import { createAdminUser, checkFirebaseConnection } from "@/lib/admin-utils"
 import TechBackground from "@/components/tech-background"
+import FirebaseDebug from "@/components/firebase-debug"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 
 export default function AdminSetupPage() {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
-  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null)
+  const [message, setMessage] = useState<{ type: "success" | "error" | "info"; text: string } | null>(null)
+  const [firebaseStatus, setFirebaseStatus] = useState<{ connected: boolean; message: string } | null>(null)
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     confirmPassword: "",
   })
 
+  // Firebase 연결 상태 확인
+  React.useEffect(() => {
+    const status = checkFirebaseConnection()
+    setFirebaseStatus(status)
+    
+    if (!status.connected) {
+      setMessage({ type: "error", text: status.message })
+    }
+  }, [])
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+    // 입력 중 오류 메시지 초기화
+    if (message?.type === "error") {
+      setMessage(null)
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsLoading(true)
     setMessage(null)
+
+    // Firebase 연결 상태 재확인
+    const connectionStatus = checkFirebaseConnection()
+    if (!connectionStatus.connected) {
+      setMessage({ type: "error", text: `Firebase 연결 오류: ${connectionStatus.message}` })
+      setIsLoading(false)
+      return
+    }
 
     // 비밀번호 확인
     if (formData.password !== formData.confirmPassword) {
@@ -41,12 +65,7 @@ export default function AdminSetupPage() {
       return
     }
 
-    // 비밀번호 강도 검사
-    if (formData.password.length < 6) {
-      setMessage({ type: "error", text: "비밀번호는 최소 6자 이상이어야 합니다." })
-      setIsLoading(false)
-      return
-    }
+    // 기본 검증은 admin-utils에서 처리하므로 여기서는 제거
 
     try {
       const result = await createAdminUser(formData.email, formData.password)
@@ -90,13 +109,20 @@ export default function AdminSetupPage() {
           </div>
 
           <div className="premium-card p-8 rounded-lg elegant-shadow">
+            {/* Firebase 디버깅 정보 */}
+            <div className="mb-6">
+              <FirebaseDebug showDetails={true} />
+            </div>
+
             {message && (
               <Alert
                 variant={message.type === "error" ? "destructive" : "default"}
                 className={
                   message.type === "error"
                     ? "bg-red-900/20 border-red-900/50 text-red-50 mb-6"
-                    : "bg-green-900/20 border-green-900/50 text-green-50 mb-6"
+                    : message.type === "success"
+                    ? "bg-green-900/20 border-green-900/50 text-green-50 mb-6"
+                    : "bg-blue-900/20 border-blue-900/50 text-blue-50 mb-6"
                 }
               >
                 {message.type === "error" ? <AlertCircle className="h-4 w-4" /> : <CheckCircle className="h-4 w-4" />}
@@ -133,7 +159,7 @@ export default function AdminSetupPage() {
                   value={formData.password}
                   onChange={handleChange}
                   className="premium-input text-white"
-                  placeholder="비밀번호 (최소 6자)"
+                  placeholder="비밀번호 (최소 8자, 대소문자+숫자)"
                 />
               </div>
 
@@ -153,12 +179,18 @@ export default function AdminSetupPage() {
                 />
               </div>
 
-              <Button type="submit" className="w-full premium-button" disabled={isLoading}>
+              <Button 
+                type="submit" 
+                className="w-full premium-button" 
+                disabled={isLoading || (firebaseStatus && !firebaseStatus.connected)}
+              >
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     계정 생성 중...
                   </>
+                ) : firebaseStatus && !firebaseStatus.connected ? (
+                  "Firebase 연결 필요"
                 ) : (
                   "관리자 계정 생성"
                 )}
