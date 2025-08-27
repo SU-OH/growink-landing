@@ -61,7 +61,10 @@
     "@emotion/is-prop-valid": "latest",
     "react-intersection-observer": "latest",
     "framer-motion": "latest",
-    "firebase": "latest"
+    "firebase": "latest",
+    "@tsparticles/slim": "^3.0.3",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/engine": "^3.0.3"
   },
   "devDependencies": {
     "@types/node": "^22",
