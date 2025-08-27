@@ -193,19 +193,13 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {[
                 {
                   name: "김경빈",
                   role: "CEO & 전략 디렉터",
                   image: "/images/team/김경빈.jpg",
                   bio: "10년 이상의 디지털 마케팅 경험을 바탕으로 전략적 방향성을 제시합니다.",
-                },
-                {
-                  name: "정요한",
-                  role: "크리에이티브 디렉터",
-                  image: "/images/team/정요한.jpg",
-                  bio: "세련된 디자인과 사용자 경험을 통해 브랜드의 가치를 높입니다.",
                 },
                 {
                   name: "송수오",

@@ -142,31 +142,47 @@ export default function HeroSection() {
                 >
                   당신의 브랜드를
                 </motion.span>
-                <div className="flex items-center justify-center space-x-4 mb-6">
-                  <motion.span 
-                    className="modern-heading animate-textGlow"
+                <div className="relative flex items-center justify-center space-x-6 mb-6">
+                  {/* Background gradient effects */}
+                  <div className="absolute inset-0 -z-10">
+                    <div className="absolute left-1/4 top-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+                    <div className="absolute right-1/4 top-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                  </div>
+                  
+                  <motion.div
+                    className="relative group"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.8, duration: 0.6 }}
                   >
-                    성장시키고
-                  </motion.span>
-                  <motion.span 
-                    className="text-white/40 text-6xl"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 0.4 }}
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+                    <span className="relative modern-heading bg-gradient-to-r from-blue-400 via-purple-400 to-blue-300 bg-clip-text text-transparent font-extrabold animate-textGlow">
+                      성장시키고
+                    </span>
+                  </motion.div>
+                  
+                  <motion.div
+                    className="relative flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 shadow-2xl shadow-amber-500/25"
+                    initial={{ opacity: 0, rotate: -180 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    transition={{ delay: 1, duration: 0.8, type: "spring" }}
+                    whileHover={{ scale: 1.1, rotate: 360 }}
                   >
-                    +
-                  </motion.span>
-                  <motion.span 
-                    className="modern-heading animate-textGlow"
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 animate-ping opacity-20"></div>
+                    <span className="text-white text-2xl font-bold relative z-10">+</span>
+                  </motion.div>
+                  
+                  <motion.div
+                    className="relative group"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.2, duration: 0.6 }}
                   >
-                    연결하는
-                  </motion.span>
+                    <div className="absolute -inset-2 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+                    <span className="relative modern-heading bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-300 bg-clip-text text-transparent font-extrabold animate-textGlow">
+                      연결하는
+                    </span>
+                  </motion.div>
                 </div>
                 <motion.div 
                   className="relative inline-block"
