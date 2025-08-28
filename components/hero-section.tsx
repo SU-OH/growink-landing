@@ -47,22 +47,27 @@ export default function HeroSection() {
       className="relative h-screen w-full bg-slate-950 flex flex-col items-center justify-center overflow-hidden"
       style={{ y, opacity }}
     >
-      {/* SparklesCore Background */}
-      <div className="w-full absolute inset-0 h-screen">
+      {/* Enhanced Full Screen Particle Background */}
+      <div className="w-full absolute inset-0 h-screen z-0">
         <SparklesCore
           id="tsparticlesfullpage"
           background="transparent"
-          minSize={0.4}
+          minSize={0.2}
           maxSize={1.2}
-          particleDensity={80}
-          className="w-full h-full"
+          particleDensity={200}
+          className="w-full h-full opacity-70"
           particleColor="#FFFFFF"
-          speed={0.8}
+          speed={0.3}
         />
       </div>
+      
+      {/* Additional Aurora Background Layer */}
+      <div className="w-full absolute inset-0 h-screen z-[1] opacity-20">
+        <div className="w-full h-full bg-gradient-to-tr from-blue-900/20 via-purple-800/10 to-cyan-900/20 animate-pulse"></div>
+      </div>
 
-      {/* Dark gradient overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/20 via-slate-950/40 to-slate-950/60 pointer-events-none" />
+      {/* Subtle gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/10 via-transparent to-slate-950/20 pointer-events-none z-10" />
       
       {/* Main gradient lines for premium effect */}
       <div className="w-full max-w-4xl relative">
@@ -104,16 +109,65 @@ export default function HeroSection() {
           </Badge>
         </motion.div>
 
-        {/* Main Title */}
+        {/* Enhanced Main Title with Effects */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-center space-y-4"
+          className="text-center space-y-4 relative"
         >
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 leading-tight">
+          {/* Glow Effect Behind Text */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="text-4xl md:text-6xl lg:text-8xl font-bold text-blue-400/20 blur-2xl animate-pulse">
+              GROWINK
+            </div>
+          </div>
+          
+          {/* Main Title with Shimmer Effect */}
+          <motion.h1 
+            className="relative text-4xl md:text-6xl lg:text-8xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-cyan-200 leading-tight"
+            animate={{
+              backgroundPosition: ['0% 0%', '100% 0%', '0% 0%'],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            style={{
+              backgroundSize: '200% 100%',
+              filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.5)) drop-shadow(0 0 20px rgba(34, 211, 238, 0.3))'
+            }}
+          >
             GROWINK
-          </h1>
+          </motion.h1>
+          
+          {/* Floating Particles Around Title */}
+          <div className="absolute inset-0 pointer-events-none">
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60"
+                style={{
+                  left: `${20 + i * 12}%`,
+                  top: `${30 + (i % 3) * 20}%`
+                }}
+                animate={{
+                  y: [-10, -20, -10],
+                  x: [-5, 5, -5],
+                  opacity: [0.6, 1, 0.6],
+                  scale: [1, 1.5, 1]
+                }}
+                transition={{
+                  duration: 3 + i * 0.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: i * 0.3
+                }}
+              />
+            ))}
+          </div>
+          
           <motion.div 
             className="text-lg md:text-xl lg:text-2xl font-light text-white/80 max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
